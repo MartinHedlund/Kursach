@@ -1,0 +1,22 @@
+﻿<Window x:Class="Kursach.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="450" Closed="Window_Closed">
+    <Grid>
+        <Border MinWidth="400" Background="White" Margin="15" Padding="30" CornerRadius="20" VerticalAlignment="Center">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBox x:Name="LoginText" Margin="0,5" materialDesign:HintAssist.Hint="Введите логин"/>
+                <PasswordBox x:Name="PassText" Margin="0,5" materialDesign:HintAssist.Hint="Введите пароль"/>
+                <Button Content="Войти" Margin="0,5" IsDefault="True" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

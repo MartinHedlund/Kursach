@@ -1,0 +1,72 @@
+﻿<Window x:Class="Kursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" MinHeight="510" MinWidth="610" Width="610" Height="510" Closed="Window_Closed" Loaded="Window_Loaded" Icon="1441222132.jpg" Title="Kursach" WindowStartupLocation="CenterOwner">
+
+    <Grid x:Name="MainRoot" Background="#dadadada">
+        <Border MinWidth="400" Background="White" Margin="15" Padding="30" CornerRadius="20" VerticalAlignment="Center">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel>
+                <Button Content="ОБНОВИТЬ" Click="Button_Click_1" SnapsToDevicePixels="True"/>
+                <TextBlock x:Name="free_person" Text="Сейчас свободно: "/>
+                <TextBlock Text="Выберите кто будет осуществлять работу" FontSize="15" FontStyle="Italic" HorizontalAlignment="Left" Margin="0,5,0,0" />
+                <ComboBox x:Name="ComBOX"
+                          SelectedValuePath="PersonID"
+                          DisplayMemberPath="FIO"
+                          SelectionChanged="ComboBox_SelectionChanged_1"
+                          Background="#56FDFD"
+                          Margin="0,5,0.2,15"
+                          MinWidth="250"
+                          Padding="6,6,0,6" Height="28" ScrollViewer.CanContentScroll="True" MaxDropDownHeight="128" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                
+                <TextBlock Text="Выберите тип проблемы" FontSize="15" FontStyle="Italic" HorizontalAlignment="Left" />
+                <ComboBox Name="ComDiscr" Background="#56FDFD" Margin="0 5 0 5" MinWidth="250" VerticalAlignment="Bottom" Height="28" DisplayMemberPath="Discription" SelectedValuePath="Id_work" SelectionChanged="ComDiscr_SelectionChanged" IsEditable="True"/>
+                <TextBlock x:Name="Text_Cost_of_day" Text="Цена за день: " FontStyle="Italic" HorizontalAlignment="Left" Margin="0,5,0,10" Padding="0" />
+                <Grid Margin="0 0 0 15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="200*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Дата начала" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Дата окончания" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"/>
+                    <TextBlock Text="Итоговая сумма работы" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="16" FontWeight="Bold" Foreground="Red" Opacity="0.7" Grid.RowSpan="2" Width="189" />
+                    <TextBlock x:Name="Itog_SUM" Text="0р" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold" Foreground="Red" />
+                    <DatePicker x:Name="data_start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Grid.Column="0" Grid.Row="1" SelectedDateFormat="Short"/>
+                    <DatePicker x:Name="data_end" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="200*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Raschet" Grid.Column="0" Content="Расчитать стоимость" Click="Raschet_Click" Margin="15 5"/>
+                    <Button x:Name="LoadBtt" Content="Отправить запрос" Grid.Column="1" Style="{StaticResource MaterialDesignFlatDarkBgButton}" IsEnabled="False" Click="LoadBtt_Click"/>
+                </Grid>
+                <Button x:Name="creat_btt" Content="Создать свой запрос на помощь?" Click="Button_Click" Margin="100 5" Style="{StaticResource MaterialDesignRaisedAccentButton}" IsEnabled="True" OpacityMask="Black" Foreground="#DD000000" FontWeight="Bold" FontSize="14">
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFCCFF39" Opacity="0.5"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="Backe" Content="Назад" HorizontalAlignment="Right" Background="#FC5A5A" Click="Backe_Click"/>
+
+            </StackPanel>
+
+        </Border>
+     
+
+
+
+    </Grid>
+
+</Window>
